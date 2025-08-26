@@ -20,7 +20,7 @@ The workflow is expected to perform the following functions:
      - **Body text** (normalized to Markdown)
      - **Citations/URLs** for traceability
 
-3. **Domain Applicability Filtering (NLP)**
+3. **Domain Applicability Filtering**
    - Using the domain profile **“IT software development firms”**, filter each extracted item to keep **only the portions relevant to software development organizations**.
    - Focus on content that references or implies:
      - **Secure software development** (e.g., SDLC, CI/CD, code review, SAST/DAST, supply-chain security, SBOM)
