@@ -10,71 +10,52 @@ The workflow is expected to perform the following functions:
 ## Workflow Functions
 
 1. **Compliance Update Retrieval**
-   - Search and retrieve the **latest NIST SP 800-series updates** from the internet (e.g., using a **Google MCP server** or similar search tool).
-   - Accept input for what to fetch via **REST API**, **CLI**, or **hard-coded** values for initial testing (e.g., “SP 800-53”, “SP 800-171”, “SP 800-218 SSDF”, “recent updates”).
-   - Collect at least **top 10 relevant items** (news posts, update notes, official pages, PDFs) and capture source URLs for citation.
+   - Search and retrieve the **latest NIST SP 800-series updates**(e.g top 10 news items) from the internet (e.g., using a **Google MCP server** or similar search tool). 
+   - The topic may be provided to the agent via a **REST API**, **CLI input**, or can be **hard-coded** for initial testing.
 
 2. **Content Extraction**
-   - Extract the full text/content of each retrieved item into **Markdown format**, preserving:
-     - **Title, source, publication date, version/revision**
-     - **Body text** (normalized to Markdown)
-     - **Citations/URLs** for traceability
+   - Extract the full content of the news articles in **Markdown format**.
 
-3. **Domain Applicability Filtering**
-   - Using the domain profile **“IT software development firms”**, filter each extracted item to keep **only the portions relevant to software development organizations**.
+3. **Domain Applicability/Filtering**
+   - From the extracted content, identify and retain only the sections that are **relevant to IT and software development organizations**.
    - Focus on content that references or implies:
      - **Secure software development** (e.g., SDLC, CI/CD, code review, SAST/DAST, supply-chain security, SBOM)
      - **Cloud-native/DevOps** practices (e.g., pipelines, containerization, IaC)
      - **Handling of CUI/PII** in software systems
      - **Mappings to NIST SP 800-53 / 800-171 / 800-218 (SSDF)** that affect software teams
-   - Output: a **filtered Markdown** file per item (e.g., `sources/<slug>-filtered.md`) that includes:
-     - The **original title, source, and date**
-     - The **relevant excerpts only** (remove unrelated sections)
-     - Brief **inline notes** (optional) explaining why a passage is relevant to software development
 
 4. **Summarization**
-   - Generate a concise **one-page Markdown summary** highlighting:
+   - From the filtered content, produce a clear and concise **one-page summary in Markdown** that highlights:
      - The **latest updates** discovered (with dates/versions)
      - **What matters for IT software development firms** (plain-language takeaways)
      - **Key actions/checklists** mapped to relevant controls/practices (e.g., 800-53 family codes, 800-171 requirements, SSDF tasks)
      - **Citations** back to the sources
+     - etc
 
-5. **Publishing**
-   - Automatically create a **GitHub Pull Request** containing:
-     - `sources/` folder with **per-item Markdown** extractions
-     - `outputs/applicability.json`
-     - `outputs/summary.md`
-     - A short **PR description** summarizing changes and linking sources
+4. **Publishing** - Automatically publish the summary to a **GitHub repository** by creating a **Pull Request** (e.g., using the **GitHub MCP server**).
 
 ---
 
 ## Workflow Deployment
 
-- **Containerization & Execution**
-  - Package the workflow into a **Docker image**.
-  - Provide a simple way to run via **Docker** (e.g., `docker run …` with environment variables for API keys, repo, branch).
-- **Configuration**
-  - Support configuration via environment variables (e.g., search keys, GitHub token/repo/branch, topic/SP identifiers).
+- Support Containerization & Deployment
+- For an example package the workflow into a **Docker image**.
+- Ensure the solution can be easily deployed and executed within a **Docker container**.
+
 
 ---
+
 
 ## Expected Deliverables
 
 - A fully functional workflow that meets all specified requirements.
-- A **Dockerfile** along with clear deployment instructions (build, run, configuration).
-- Example output artifacts:
-  - `sources/*.md` (extracted items)
-  - `outputs/applicability.json` (structured applicability results)
-  - `outputs/summary.md` (one-page summary with citations)
+- A **Dockerfile** along with clear deployment instructions.
+
 
 ---
 
+
 ## Code Delivery
 
-- Provide the complete **source code** (preferably hosted on your GitHub; share the repository link).
-- Include comprehensive **documentation** (README) with:
-  - Setup instructions and dependencies
-  - How to run via CLI/REST and Docker
-  - Example inputs/commands and expected outputs
-  - Notes on agentic SDKs/MCP servers used (e.g., Google search MCP, GitHub MCP)
-
+- Provide the complete **source code** (preferably hosted on your GitHub and share the repository link with us).
+- Include comprehensive **documentation** (README) with setup instructions, dependency details, and usage examples.
