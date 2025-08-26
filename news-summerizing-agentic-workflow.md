@@ -1,7 +1,7 @@
-# Task: Build an Agentic Workflow for NIST SP 800 Updates & Applicability Summaries
+# Task: Build an Agentic AI Workflow for NIST SP 800 Updates & Applicability Summaries
 
 ## Objective
-Develop an **agentic AI workflow** that automatically retrieves the **latest NIST SP 800-series compliance updates**, extracts their contents, determines **applicability to IT software development firms**, summarizes the findings, and publishes results to GitHub via Pull Request. The workflow should be implemented using an agentic SDK (e.g., **OpenAI Agents SDK**, **Google Agent Development Kit**, or another suitable framework) and support deployment as a containerized service.
+Develop an **Agentic AI Workflow** that automatically retrieves the **latest NIST SP 800-series compliance updates**, extracts their contents, determines **applicability to IT software development firms**, summarizes the findings, and publishes results to GitHub via Pull Request. The workflow should be implemented using an agentic SDK (e.g., **OpenAI Agents SDK**, **Google Agent Development Kit**, or another suitable framework) and support deployment as a containerized service.
 
 The workflow is expected to perform the following functions:
 
